@@ -16,3 +16,18 @@ def organize_images_by_label(root_dir, output_dir):
                 if not os.path.exists(xml_path):
                     print(f"Uyarı: XML dosyası bulunamadı - {file}")
                     continue
+
+                try:
+                    tree = ET.parse(xml_path)
+                    root = tree.getroot()
+
+                    # found to first element
+                    first_name_element = root.find(".//name")
+                    if first_name_element is None:
+                        print(f"Uyarı: <name> etiketi bulunamadı - {xml_path}")
+                        continue
+                    first_name = first_name_element.text
+
+                    # create subfolder
+                    label_dir = os.path.join(output_dir, first_name)
+                    os.makedirs(label_dir, exist_ok=True)
