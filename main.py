@@ -31,3 +31,18 @@ def organize_images_by_label(root_dir, output_dir):
                     # create subfolder
                     label_dir = os.path.join(output_dir, first_name)
                     os.makedirs(label_dir, exist_ok=True)
+
+                    # Determining target file paths
+                    target_xml_path = os.path.join(label_dir, xml_file_name)
+                    target_image_path = os.path.join(label_dir, file)
+
+                    # Overwrite a file with the same name if it exists
+                    if os.path.exists(target_xml_path):
+                        print(same_data_count, f"--> Bilgi: {target_xml_path} dosyası üzerine yazılacak.")
+                        same_data_count += 1
+                    if os.path.exists(target_image_path):
+                        print(f"Bilgi: {target_image_path} dosyası üzerine yazılacak.")
+
+
+                except ET.ParseError:
+                    pass
