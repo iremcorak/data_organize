@@ -43,6 +43,14 @@ def organize_images_by_label(root_dir, output_dir):
                     if os.path.exists(target_image_path):
                         print(f"Bilgi: {target_image_path} dosyası üzerine yazılacak.")
 
+                    # Move the XML and image file to the subfolder
+                    shutil.move(xml_path, target_xml_path)
+                    shutil.move(os.path.join(subdir, file), target_image_path)
 
                 except ET.ParseError:
-                    pass
+                    print(f"Uyarı: XML dosyası parse edilemedi - {xml_path}")
+                    continue
+
+root_directory = r"D:\data"
+output_directory = r"D:\data_split"
+organize_images_by_label(root_directory, output_directory)
