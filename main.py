@@ -51,6 +51,6 @@ def organize_images_by_label(root_dir, output_dir):
                     print(f"Uyarı: XML dosyası parse edilemedi - {xml_path}")
                     continue
 
-root_directory = r"D:\0609_yolodata_v2\val_e"
-output_directory = r"D:\0609_yolodata_v2\val_e_split"
+root_directory = r"D:\data\val"
+output_directory = r"D:\data\val_split"
 organize_images_by_label(root_directory, output_directory)
