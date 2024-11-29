@@ -4,8 +4,6 @@ This repository contains Python scripts designed to organize and filter datasets
 
 ## Scripts Overview
 
-### 1. `organize_images_by_label.py`
-
 This script organizes image and XML files into subdirectories based on the label (`<name>`) specified in the XML files.
 
 #### Features:
